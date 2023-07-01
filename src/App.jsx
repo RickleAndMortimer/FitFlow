@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Input from './components/Input'; 
 import './App.css';
 
+
 const App = () => {
   const timeItems = [
     { value: 1, label: '1 Minute' },
@@ -28,15 +29,7 @@ const App = () => {
 
   useEffect(() => {
     const script = document.createElement('script');
-
-    script.src = "/src/main.js";
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    }
+    import('./main.js');
   }, []);
 
   return (
