@@ -29,7 +29,7 @@ const App = () => {
 
   useEffect(() => {
     const script = document.createElement('script');
-    import('./main.js');
+    script.src = '%PUBLIC_URL%/main.js';
   }, []);
 
   return (
