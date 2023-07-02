@@ -25,7 +25,7 @@ const App = () => {
     { value: 7, label: '7' },
   ];
 
-
+let start = false;
 
   useEffect(() => {
 const videoElement = document.getElementsByClassName('input_video')[0];
@@ -34,7 +34,6 @@ const canvasCtx = canvasElement.getContext('2d');
 
 let stage = "down";
 let counter = 0;
-let start = false;
 let sets = 0;
 
 function onResults(results) {
@@ -56,7 +55,7 @@ function onResults(results) {
   drawLandmarks(canvasCtx, results.poseLandmarks,
                 {color: '#FF0000', lineWidth: 2});
 
-  if (results.poseLandmarks) {
+  if (results.poseLandmarks && start) {
 	  const shoulder = results.poseLandmarks[11];
 	  const elbow = results.poseLandmarks[13];
 	  const wrist = results.poseLandmarks[15];
@@ -108,6 +107,10 @@ const camera = new Camera(videoElement, {
 });
 
 const button = document.getElementById("startBtn");
+button.addEventListener('click', (e) => {
+  start = true;
+})
+
 
 camera.start();
   }, []);
