@@ -60,7 +60,7 @@ const App = () => {
 	</div>
 	<div className="landmark-grid-container"></div>
       </div>
-      <script src="/src/main.js"></script>
+      <script src="%PUBLIC_URL%/main.js"></script>
     </div>
   )
 }
